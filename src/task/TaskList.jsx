@@ -9,7 +9,7 @@ const TaskList = ({tasks}) => {
         <tr>
           <th className="p-4 pb-8 text-sm font-semibold capitalize w-[48px]"></th>
           <th className="p-4 pb-8 text-sm font-semibold capitalize w-[300px]"> Title </th>
-          <th className="p-4 pb-8 text-sm font-semibold capitalize w-full"> Description </th>
+          <th className="p-4 pb-8 text-sm font-semibold capitalize w-full"> Mark </th>
           <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[350px]"> Tags </th>
           <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[100px]"> Priority </th>
           <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[100px]"> Options </th>
@@ -33,19 +33,9 @@ const TaskList = ({tasks}) => {
             </div>
           </td>
           <td>
-            <ul className="flex justify-center gap-1.5 flex-wrap">
-            {task.tags.map(tag=>
-              <li key={tag} >
-              <span
-                className="inline-block h-5 whitespace-nowrap rounded-[45px] bg-[#00D991A1] px-2.5 text-sm capitalize text-[#F4F5F6]">{tag}</span>
-            </li>
-              )}
-            
-          
-              
-            </ul>
+           
           </td>
-          <td className="text-center">{task.priority}</td>
+          <td className="text-center">{task.status}</td>
           <td>
             <div className="flex items-center justify-center space-x-3">
               <button className="text-red-500">Delete</button>
