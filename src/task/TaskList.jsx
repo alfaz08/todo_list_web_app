@@ -24,7 +24,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
                 Title{" "}
               </th>
               <th className="p-4 pb-8 text-sm font-semibold capitalize w-[250px]">
-                Task Status
+                Status
               </th>
               <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[250px]">
                 {" "}
@@ -60,7 +60,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
                   {task.priority === "High" ? (
                     <button
                       disabled
-                      className="bg-red-600 w-24 text-bl text-center rounded-lg"
+                      className="bg-blue-500 w-24 text-bl text-center rounded-lg"
                     >
                       High
                     </button>
@@ -85,7 +85,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
                   <button
                   onClick={()=>onEdit(task)}
                   >
-                    <FaEdit className="text-3xl text-blue-500" />
+                    <FaEdit className="text-3xl text-teal-300" />
                   </button>
                 </td>
 
@@ -93,7 +93,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
                   <div className="flex items-center justify-center space-x-3">
                     <button
                     onClick={()=>onMark(task.id)}
-                    className="text-teal-300 ">
+                    className="text-lime-300 ">
                       {
                         task.isComplete ?
                         

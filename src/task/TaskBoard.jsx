@@ -100,7 +100,7 @@ const TaskBoard = () => {
            
              onAddClick={() => setShowAddModal(true)} />
             {
-              tasks.length >0 ?
+              tasks?.length >0 ?
               (
                 <TaskList  tasks={tasks} onMark={handleMark} selectedPriority={selectedPriority} onDelete={handleDelete}  onEdit={handleEdit}/>
   )

@@ -18,8 +18,8 @@ const TaskActions = ({onAddClick,tasks,onPriorityFilterChange}) => {
       <div className="mb-14 items-center justify-between sm:flex">
         <h2 className="text-2xl font-semibold max-sm:mb-4">Your Tasks</h2>
 
-        <div>Total Task: {tasks?.length}</div>
-        <div>Complete Task: {completeTask?.length}</div>
+        <div className="text-2xl font-semibold max-sm:mb-4">Total Task: {tasks?.length}</div>
+        <div className="text-2xl font-semibold max-sm:mb-4">Complete Task: {completeTask?.length}</div>
         <div className="flex items-center space-x-5">
           <button
             onClick={onAddClick}
