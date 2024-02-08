@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AddTaskModal from "./AddTaskModal";
 import TaskActions from "./TaskActions";
 import TaskList from "./TaskList";
+import NoTaskFound from "./NoTaskFound";
 
 const TaskBoard = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -67,7 +68,14 @@ const TaskBoard = () => {
         <div className="container mx-auto ">
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
             <TaskActions tasks={tasks} onAddClick={() => setShowAddModal(true)} />
-            <TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}/>
+            {
+              tasks.length >0 ?
+              (
+                <TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}/>
+  )
+              :
+                <NoTaskFound/>
+            }
           </div>
         </div>
       </section>
