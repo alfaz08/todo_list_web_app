@@ -33,7 +33,19 @@ const TaskList = ({tasks}) => {
            {task.isComplete ? "Completed" : "Not Completed"}
 
           </td>
-          <td className="text-center">{task.priority}</td>
+          <td className="text-center">
+            {task.priority=== 'High' ?
+            <button disabled className="bg-red-600 w-24 text-bl text-center rounded-lg">High</button>
+            :
+            task.priority=== 'Low'?
+            <button disabled className="bg-green-600 w-24 text-center rounded-lg">Low</button>
+            :
+            <button disabled className="bg-purple-600 w-24 text-center rounded-lg">Medium</button>
+
+            }
+            </td>
+
+
           <td className="flex justify-center items-center">
   <button>
   <FaEdit className="text-2xl text-blue-500" />
