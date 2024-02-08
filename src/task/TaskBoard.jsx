@@ -8,10 +8,14 @@ const TaskBoard = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [taskToUpdate,setTaskToUpdate]=useState(null)
-
+  const [selectedPriority,setSelectPriority] =useState("")
   
+  const handlePriorityFilterChange=(priority)=>{
+    setSelectPriority(priority)
+    
+  }
 
-  
+  console.log('select',selectedPriority);
 
   const handleSave = (newTask, isAdd) => {
     if (isAdd) {
@@ -67,11 +71,14 @@ const TaskBoard = () => {
         {showAddModal && <AddTaskModal taskToUpdate={taskToUpdate}  onSave={handleSave} onCloseClick={handleCloseClick}/>}
         <div className="container mx-auto ">
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-            <TaskActions tasks={tasks} onAddClick={() => setShowAddModal(true)} />
+            <TaskActions tasks={tasks}
+           onPriorityFilterChange={handlePriorityFilterChange}
+           
+             onAddClick={() => setShowAddModal(true)} />
             {
               tasks.length >0 ?
               (
-                <TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}/>
+                <TaskList tasks={tasks} selectedPriority={selectedPriority} onDelete={handleDelete} onEdit={handleEdit}/>
   )
               :
                 <NoTaskFound/>
