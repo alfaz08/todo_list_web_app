@@ -38,7 +38,13 @@ const TaskBoard = () => {
    setShowAddModal(true)
    
   }
+ 
 
+  const handleDelete=(taskId)=>{
+    const tasksAfterDelete= tasks.filter(task=>task.id !== taskId)
+    setTasks(tasksAfterDelete)
+    localStorage.setItem("tasks", JSON.stringify(tasksAfterDelete));
+  }
 
 
    useEffect(()=>{
@@ -61,7 +67,7 @@ const TaskBoard = () => {
         <div className="container mx-auto ">
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
             <TaskActions tasks={tasks} onAddClick={() => setShowAddModal(true)} />
-            <TaskList tasks={tasks} onEdit={handleEdit}/>
+            <TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}/>
           </div>
         </div>
       </section>
