@@ -9,7 +9,8 @@ const TaskBoard = () => {
   const [tasks, setTasks] = useState([]);
   const [taskToUpdate,setTaskToUpdate]=useState(null)
   const [selectedPriority,setSelectPriority] =useState("")
-  
+  const [statusChange,setStatusChange] =useState(false)
+
   const handlePriorityFilterChange=(priority)=>{
     setSelectPriority(priority)
     
@@ -45,17 +46,40 @@ const TaskBoard = () => {
   }
  
 
+  const handleMark=(taskId)=>{
+    const taskToUpdate = tasks.find((task) => task.id === taskId);
+
+    
+    if (taskToUpdate) {
+      taskToUpdate.isComplete = true;
+
+     
+      setTasks((prevTasks) =>
+        prevTasks.map((task) => (task.id === taskId ? taskToUpdate : task))
+      );
+
+     
+      localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks.map((task) => (task.id === taskId ? taskToUpdate : task)))
+      );
+    }
+  }
+
   const handleDelete=(taskId)=>{
     const tasksAfterDelete= tasks.filter(task=>task.id !== taskId)
     setTasks(tasksAfterDelete)
     localStorage.setItem("tasks", JSON.stringify(tasksAfterDelete));
   }
 
-
-   useEffect(()=>{
+  
+  useEffect(()=>{
     const addTask =JSON.parse(localStorage.getItem("tasks"))
     setTasks(addTask)
    },[])
+
+   
+   
 
   console.log('addTask',tasks);
   const handleCloseClick=()=>{
@@ -78,7 +102,7 @@ const TaskBoard = () => {
             {
               tasks.length >0 ?
               (
-                <TaskList tasks={tasks} selectedPriority={selectedPriority} onDelete={handleDelete} onEdit={handleEdit}/>
+                <TaskList  tasks={tasks} onMark={handleMark} selectedPriority={selectedPriority} onDelete={handleDelete}  onEdit={handleEdit}/>
   )
               :
                 <NoTaskFound/>
