@@ -73,10 +73,12 @@ const TaskBoard = () => {
   }
 
   
-  useEffect(()=>{
-    const addTask =JSON.parse(localStorage.getItem("tasks"))
-    setTasks(addTask)
-   },[])
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (storedTasks && Array.isArray(storedTasks)) {
+      setTasks(storedTasks);
+    }
+  }, []);
 
    
    

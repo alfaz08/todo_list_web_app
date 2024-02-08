@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
       <div>
-          <nav className="py-6 md:py-8 fixed top-0 w-full z-50">
+          <nav className="py-6 md:py-8  top-0 w-full z-50">
 		<div className="container mx-auto flex items-center justify-between gap-x-6">
 		
 			<a href="/">

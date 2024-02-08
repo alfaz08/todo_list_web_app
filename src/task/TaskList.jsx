@@ -19,7 +19,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
         <table className="table-fixed overflow-auto xl:w-full">
           <thead>
             <tr>
-              <th className="p-4 pb-8 text-sm font-semibold capitalize w-[350px]">
+              <th className="p-4 pb-8 text-sm font-semibold capitalize w-[250px]">
                 {" "}
                 Title{" "}
               </th>
@@ -31,7 +31,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
                 Priority{" "}
               </th>
 
-              <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[150px]">
+              <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[100px]">
                 {" "}
                 Edit Task{" "}
               </th>
@@ -39,7 +39,7 @@ const TaskList = ({ tasks ,onEdit,onDelete,selectedPriority,onMark}) => {
                 {" "}
                 Mark as complete{" "}
               </th>
-              <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[150px]">
+              <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[100px]">
                 {" "}
                 Delete{" "}
               </th>
